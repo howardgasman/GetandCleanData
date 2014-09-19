@@ -27,12 +27,21 @@ The code has been been done in various steps, which are as per the course instru
 ### STEP 3: Use descriptive activity names to name the activities in the data set
 
 1) Read in the following source files into dataframes of the same name: <br/>
-	1.1) y_train <br/>
-	1.2) y_test <br/>
-	1.3) activity_labels <br/>
+1.1) y_train <br/>
+1.2) y_test <br/>
+1.3) activity_labels <br/>
 2) dataframes "y_train" and "y_test" are then merged into dataframe "y_data" using rbind. <br/>
 3) dataframes "y_data" and "activity_labels" are then merged into dataframe "y_activity", which extends the number of columns. <br/>
 4) dataframes "y_activity" and "mean_std" are then merged into  dataframe "activity_var". <br/>
 
-### STEP 4: Appropriately labels the data set with descriptive variable names. 
+### STEP 4: Appropriately labels the data set with descriptive variable names. <br/> 
+1) All column names, except Activity, have been relabelled in step 2.2, thus just relabel "Activity", which is the 2nd column. <br/>
+
+### STEP 5: Appropriately labels the data set with descriptive variable names. <br/> 
+2) Read in the subject source files ("subject_train" and "subject_test") into dataframes of the same name. <br/>
+3) Merge these 2 datasets into a new dataset, called "subject_data". <br/>
+4) Rename the first column of the "subject_data" to "Subject". <br/>
+5) Merge the "subject_data" and "activity_var" dataframes into a new dataframe "predata".
+6) Create a new dataframe "finaldataset", which calculates the mean of each column in the "predata" dataframe, by subject and activity.
+7) Write the contents of the "finaldataset" dataframe to your working directory. The column names are excluded.
 
