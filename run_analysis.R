@@ -42,11 +42,9 @@ colnames(X) <- features$V2
 
 #Get the indices of the columns that contain strings "mean()" OR "std()" into variable "y"
 y <- vector() #Create empty vector
-hg <- vector()
 for(x in (1:561)) { # dataset "X" has 561 columns
 if (grepl("mean()", colnames(X[x]), fixed=TRUE) | grepl("std()", colnames(X[x]), fixed=TRUE)) 
-        {                
-                hg <- c(y, colnames(X[x]))
+        {                                
                 y <- c(y,x)
         }
                 }
@@ -64,30 +62,36 @@ y_train = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/tra
 #read y_test dataset
 y_test = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt")
 
-#merge the y_train and y_test datasets
-y_data <- rbind(y_train, y_test)
-
 #read the activity_labels dataset
 activity_labels = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt")
+
+#merge the y_train and y_test datasets
+y_data <- rbind(y_train, y_test)
 
 #merge y_train and activity_labels.
 y_activity <- join(y_data, activity_labels)
 
-
 #join mean_std and y_activity
 activity_var <- cbind(y_activity, mean_std)
 
-#step 4
+############################################################################
+#step 4: Appropriately labels the data set with descriptive variable names. 
+############################################################################
+
 #all column names, except Activity have been appropriately labelled, so just label Activity
 colnames(activity_var)[2] <- "Activity"
 
-
-#step 5: Get Subject data
+############################################################################
+#step 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+############################################################################
+#read subject datasets
 subject_train = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt")
 subject_test = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt")
 
+#merge subject datasets
 subject_data <- rbind(subject_train, subject_test)
 
+#Rename first column to "Subject"
 colnames(subject_data)[1] <- "Subject"
 
 #merge activity_var and subject_data
@@ -96,5 +100,6 @@ predata <- cbind(subject_data, activity_var)
 #aggregate
 finaldataset <- aggregate(. ~ Subject + V1 + Activity, predata, mean)
 
+#Write to file.
 write.table("finaldataset", finaldataset, row.name=FALSE)
 

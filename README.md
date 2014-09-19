@@ -1,11 +1,15 @@
 ## Getting and Cleaning Data
 ## Instructions of code in run_analysis.R
 
-The code has been been done in various steps, which are as per the course instructions, and are outlines here.
+The code has been been done in various steps, which are as per the course instructions, and are outlined here. <br/>
+This has been done step-by-step, and a new dataframe has been created whenever a dataframe has been needed or dataframes have been merged. <br/>
+
+Please note that the source files (header directory "getdata-projectfiles-UCI HAR Dataset" must be placed in your working directory, along with the run_analysis.R file. <br/>
+I have not included the source files in this repository, as these have been made available to all students, and as such, should already been maintained on their pc.  <br/>
 
 ### PRE-CODE
 
-1) First, the "plyr" library is initialised, as this will be used later in the code
+1) First, the "plyr" library is initialised, as this will be used later in the code. <br/>
 
 ### STEP 1: Merge the training and tests datasets
 
@@ -41,7 +45,7 @@ The code has been been done in various steps, which are as per the course instru
 2) Read in the subject source files ("subject_train" and "subject_test") into dataframes of the same name. <br/>
 3) Merge these 2 datasets into a new dataset, called "subject_data". <br/>
 4) Rename the first column of the "subject_data" to "Subject". <br/>
-5) Merge the "subject_data" and "activity_var" dataframes into a new dataframe "predata".
-6) Create a new dataframe "finaldataset", which calculates the mean of each column in the "predata" dataframe, by subject and activity.
-7) Write the contents of the "finaldataset" dataframe to your working directory. The column names are excluded.
+5) Merge the "subject_data" and "activity_var" dataframes into a new dataframe "predata". <br/>
+6) Create a new dataframe "finaldataset", which calculates the mean of each column in the "predata" dataframe, by subject and activity. <br/>
+7) Write the contents of the "finaldataset" dataframe to your working directory. The column names are excluded. <br/>
 
