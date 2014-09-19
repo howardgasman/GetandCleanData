@@ -1,21 +1,7 @@
-#a = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/features.txt")
-#b = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/features_info.txt", sep="\n")
-#c = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt")
-
-#d = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt")
-#e = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt")
-
-#f = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt")
-#g = read.table("./getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt")
-
-
-#f[,"angle(Z,gravityMean)"]
-
 #Working directory must be set to directory that contains the unzipped directory, 
 #called 'getdata-projectfiles-UCI HAR Dataset' used for this project 
 
 #include necessary libraries
-
 library(plyr)
 ############################################################################
 #STEP 1: Merge the training and tests datasets
