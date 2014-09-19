@@ -10,7 +10,7 @@ The code has been been done in various steps, which are as per the course instru
 ### STEP 1: Merge the training and tests datasets
 
 1) First read in the following source files into dataframes of the same name: <br/>
-	1.1) X_train <br/>
+    1.1) X_train <br/>
 	1.2) X_test <br/>
  2) These 2 dataframes are then merged into dataframe "X" using rbind. <br/>
 
@@ -19,7 +19,7 @@ The code has been been done in various steps, which are as per the course instru
 1) The "features" source file is read into a dataset of the same name. <br/>
 2) Dataset "X" is give column names as per the "features" dataset. <br/>
 3) As we only want measurements that measure mean and standard deviation, we extract only column names in "X" that contain "mean()" or "std()". <br/>
-	3.1) Create and empty vector "y". <br/>
+	+ 3.1) Create and empty vector "y". <br/>
 	3.2) Create a loop from 1 to 561 (the number of columns in "X") that searches through the column names. <br/>
 		 If a column name contains the string "mean()" or "std()", the index of this column is added to vector "y". <br/>
 	3.3) A new dataframe "std_mean" is created from "X", containing only the column indices that were obtained in step 3.2. <br/>
