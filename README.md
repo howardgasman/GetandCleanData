@@ -9,14 +9,14 @@ The code has been been done in various steps, which are as per the course instru
 
 ### STEP 1: Merge the training and tests datasets
 
-*1) First read in the following source files into dataframes of the same name:
+* 1) First read in the following source files into dataframes of the same name:
 *	1.1) X_train
 *	1.2) X_test
-*2) These 2 dataframes are then merged into dataframe "X" using rbind.
+* 2) These 2 dataframes are then merged into dataframe "X" using rbind.
 
 ### STEP 2: Extract the measurements for the mean and standard deviation for each measurement
 
-1) The "features" source file is read into a dataset of the same name.
+####1) The "features" source file is read into a dataset of the same name.
 2) Dataset "X" is give column names as per the "features" dataset
 3) As we only want measurements that measure mean and standard deviation, we extract only column names in "X" that contain "mean()" or "std()"
 	3.1) Create and empty vector "y"
