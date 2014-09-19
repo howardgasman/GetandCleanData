@@ -1,0 +1,64 @@
+==================================================================
+Human Activity Recognition Using Smartphones Dataset.
+==================================================================
+
+==================================================================
+Source Data
+==================================================================
+The source data contains 8 relevant files which show the 561 measurements for the training and testing experiments. These experiments were performed by 30 volunteers, which wach performing 6 acitivities. The measurements were taken by a smartphone which the volunteers were using.
+
+The source data consists of the following relevant files used in this project:
+
+1 & 2) X_train.txt and X_test.txt:
+These files contain the 561 measurements taken during the experiment for all 6 activities. X_train contains 75% of the volunteers info and X_test the other 25%.
+There are 561 columns, with each column indicating a measurement.
+There is no 'ID' in this file, so all files are joined in the sequential order of their rows (unless otherwise stated).
+
+X_train consists of 7352 records, and X-test has 2947. Combined they have 10,299 records, and thus we can say that 10,299 experiments were done, each with 561 measurments.
+
+3) features.txt
+This source file contains the name of the 561 experiments conducted, and hence describes the column headers in the X_train and X_test datasets, and has 561 rows.
+
+4) activity_labels.txt
+This contains the 6 activies that were done in during the experiments. These are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.
+
+5 & 6) y_train.txt and y_test.txt
+These files contain the information that describes which activity was conducted for each of the 10,299 experiments. Again, as there are no "Id's' for these columns, they are joined to the 'X' data by row sequence.
+
+7 & 8) subject_train.txt and subject_test.txt
+These files contain information about which volunteer participated in each of the 10,299 experiments. Again, as there are no "Id's' for these columns, they are joined to the 'X' data by row sequence.
+
+==================================================================
+Transformations
+==================================================================
+The transformations described here are discussed per their step (which is contained both in the code, and the ReadMe.md files.
+
+Step 1.2) The X_train and X_test datasets are merged together into dataframe "X" using rbind. Thus the 7532 rows of X_train and the 2947 rows of X_test become one dataset of 10,299 rows. The column names are the same, and are V1 to V561.
+
+Step 2.2) The column names of dataset X are renamed using dataset features.
+
+Step 2.3.2) A loop is conducted through each of the 561 column names of X, checking if each contains the string 'mean()' or 'std()' in it.
+Of those which have one of those strings, it's index is saved to vector y.
+There are 66 such columns.
+
+Step 2.3.3) A new dataset 'mean_std' is created, which is a subset of 'X', and contains only the 66 columns which have 'mean()' or 'std()' as per step 2.3.2.
+
+Step 3.2) the y_train and y_test data is merged into a single dataset 'y_data'.
+Again the 7532 and 2947 rows are combined into a dataset of 10,299 rows and one column.
+
+Step 3.3) y_data is merged with dataset activity_labels into dataset y_activity. Each has the same amount of rows and the numbers of columns is extended. y_data has one column and activity_labels has 2, thus y_activity has 3 columns and 10,299 rows.
+
+Step 3.4) datasets y_activity and mean_std are merged together into a single dataset 'activity_var' using rbind. Thus again, the total number of columns is 10,299 and the total number of columns is 68. 
+Column 1 is called V1, and is simple the ActivityId
+Column 2 is called Activity, and is the description of the activity as per the activity_labels dataset.
+Columns 3 - 68 are the 66 measurements, each with their name defined as per the features dataset.
+
+Step 4.1) The 2nd column in the activity_var dataset is renamed to 'Activity'. The firs column remains, and is called V1, and is simply the ID of the activity.
+
+Step 5.2) datasets subject_train and subject_test are merged using rbind, so the resulting dataset subject_data has 10,299 rows and 1 column, giving the ID of the subject (1-30).
+
+Step 5.3) The first column in the subject_data dataset, called V1, is renamed to 'Subject'.
+
+Step 5.4) the subject_data and activity_var datasets are merged into dataset predata, using cbind, so that the first column is the subject, and the remaining 68 columns are as per the activity_var dataset.
+
+Step 5.5) Aggregation is done of activity_var, so that the mean of each of the 66 measurements is taken per activity per subject. This is contained in the dataset 'finaldataset'. The 10,299 rows of activity var are summarised into 180 records, each with the average of each measurement for each activity for each subject.

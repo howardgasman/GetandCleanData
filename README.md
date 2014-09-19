@@ -42,10 +42,10 @@ I have not included the source files in this repository, as these have been made
 1) All column names, except Activity, have been relabelled in step 2.2, thus just relabel "Activity", which is the 2nd column. <br/>
 
 ### STEP 5: Appropriately labels the data set with descriptive variable names. <br/> 
-2) Read in the subject source files ("subject_train" and "subject_test") into dataframes of the same name. <br/>
-3) Merge these 2 datasets into a new dataset, called "subject_data". <br/>
-4) Rename the first column of the "subject_data" to "Subject". <br/>
-5) Merge the "subject_data" and "activity_var" dataframes into a new dataframe "predata". <br/>
-6) Create a new dataframe "finaldataset", which calculates the mean of each column in the "predata" dataframe, by subject and activity. <br/>
-7) Write the contents of the "finaldataset" dataframe to your working directory. The column names are excluded. <br/>
+1) Read in the subject source files ("subject_train" and "subject_test") into dataframes of the same name. <br/>
+2) Merge these 2 datasets into a new dataset, called "subject_data". <br/>
+3) Rename the first column of the "subject_data" to "Subject". <br/>
+4) Merge the "subject_data" and "activity_var" dataframes into a new dataframe "predata". <br/>
+5) Create a new dataframe "finaldataset", which calculates the mean of each column in the "predata" dataframe, by subject and activity. <br/>
+6) Write the contents of the "finaldataset" dataframe to your working directory. The column names are excluded. <br/>
 
