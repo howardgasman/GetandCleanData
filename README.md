@@ -17,7 +17,7 @@ The code has been been done in various steps, which are as per the course instru
 ### STEP 2: Extract the measurements for the mean and standard deviation for each measurement
 
 ####1) The "features" source file is read into a dataset of the same name.
-2) Dataset "X" is give column names as per the "features" dataset
+2) Dataset "X" is give column names as per the "features" dataset <br/>
 3) As we only want measurements that measure mean and standard deviation, we extract only column names in "X" that contain "mean()" or "std()"
 	3.1) Create and empty vector "y"
 	3.2) Create a loop from 1 to 561 (the number of columns in "X") that searches through the column names.
