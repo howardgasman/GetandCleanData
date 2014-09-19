@@ -87,5 +87,5 @@ predata <- cbind(subject_data, activity_var)
 finaldataset <- aggregate(. ~ Subject + V1 + Activity, predata, mean)
 
 #Write to file.
-write.table("finaldataset", finaldataset, row.name=FALSE)
+write.table(finaldataset, file="finaldataset.txt", row.name=FALSE)
 
